@@ -13,7 +13,7 @@ route.get(
     // search query
     const searchQuery = urlencode(req.query.q);
 
-    // serch location (proviances)
+    // serch location
     let searchLocation;
     req.query.location
       ? (searchLocation = urlencode(req.query.location))
