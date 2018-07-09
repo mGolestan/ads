@@ -9,5 +9,5 @@ app
   .use(bodyParser.urlencoded({ extended: true }))
   .use("/", routes);
 
-app.listen("8080");
-console.log("Magic happens on port 8085");
+app.listen(process.env.PORT || 8888);
+console.log(`Magic happens on port ${process.env.PORT || "8888"}`);
