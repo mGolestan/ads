@@ -1,8 +1,14 @@
 [ignore]
+<PROJECT_ROOT>/node_modules/.*/test/.*
+<PROJECT_ROOT>/node_modules/.*/spec/.*
+<PROJECT_ROOT>/dist/.*
 
 [include]
+<PROJECT_ROOT>/src/.*
+<PROJECT_ROOT>/server.js
 
 [libs]
+flow-typed
 
 [lints]
 

@@ -1,0 +1,16 @@
+// @flow
+
+import request from "supertest";
+
+import app from "../../src/server";
+
+describe("GET /", () => {
+  it("returns a valid result on a valid request", () => {
+    return request(app)
+      .get("/")
+      .expect(200)
+      .then(res => {
+        expect(res.body).toMatchSnapshot();
+      });
+  });
+});
