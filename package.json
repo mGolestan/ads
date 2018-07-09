@@ -21,7 +21,10 @@
   },
   "dependencies": {
     "async-middleware": "^1.2.1",
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
     "babel-eslint": "^8.2.5",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
@@ -39,9 +42,6 @@
     "winston": "^2.4.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-register": "^6.26.0",
     "supertest": "^3.1.0",
     "jest": "^23.3.0"
   }
