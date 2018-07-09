@@ -3,11 +3,11 @@ import dotenv from "dotenv";
 
 type EnvObjectType = {};
 
-override = (envObj: EnvObjectType) => {
+function override(envObj: EnvObjectType) {
   process.env = { ...process.env, ...envObj };
-};
+}
 
-loadEnvVar = () => {
+function loadEnvVar() {
   const enviroment = process.env.NODE_ENV || "development";
 
   if (enviroment !== "production") {
@@ -17,6 +17,6 @@ loadEnvVar = () => {
   if (fs.existsSync(".env.local")) {
     override(dotenv.parse(fs.readFileSync(".env.local")));
   }
-};
+}
 
-export default loadEnvVar;
+module.exports = loadEnvVar;
