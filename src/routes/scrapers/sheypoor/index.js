@@ -6,7 +6,7 @@ import scrape from "./scrap";
 const route = router();
 
 // Let's scrape Sheypoor
-route.get("/sheypoor", (req, res) => {
+route.get("/", (req, res) => {
   // search query
   const searchQuery = urlencode(req.query.q);
 

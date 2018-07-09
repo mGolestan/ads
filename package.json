@@ -6,7 +6,7 @@
   "author": "Scotch",
   "scripts": {
     "start": "rimraf dist && babel ./src --out-dir ./dist && node dist/server.js",
-    "start --dev": "nodemon --exec babel-node -- src/server.js"
+    "start:dev": "nodemon --exec babel-node -- src/server.js"
   },
   "standard": {
     "plugins": [
