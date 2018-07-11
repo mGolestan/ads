@@ -1,8 +1,11 @@
 // @flow
 import { Router as router } from "express";
 import { wrap } from "async-middleware";
+import { debug } from "winston";
 import { Place } from "../../../utils/city";
 import fetch from "node-fetch";
+import type { Response } from "node-fetch";
+import { InternalServerError } from "../../../utils/errors";
 
 import "../../../utils/city/data";
 
@@ -39,8 +42,16 @@ route.get(
       body: JSON.stringify(body),
       headers: { "Content-Type": "application/json" }
     })
-      .then(res => res.json())
+      .then((res: Response) => res.json())
+      .catch((e: Error) => {
+        debug("Error encountered in Divar request", e);
+        throw new InternalServerError("errorConnecting");
+      })
       .then(json => {
+        if (json.error) {
+          throw new InternalServerError("Divar responsed with an error");
+        }
+
         const priceIndexName = "v09";
         const titleIndexName = "title";
         const descIndexName = "desc";
