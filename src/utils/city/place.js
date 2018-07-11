@@ -27,7 +27,6 @@ class Place {
     this.showInInput = showInInput;
     this.neighbours = neighbours;
     this.isNew = isNew;
-    console.log(`loading city: ${slug}`);
   }
 
   parent() {
