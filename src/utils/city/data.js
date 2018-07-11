@@ -1,0 +1,589 @@
+// @flow
+import Place from "./place";
+
+Place.PLACES = [];
+Place.PLACES[1] = new Place(
+  1,
+  0,
+  "تهران",
+  "tehran",
+  "place2",
+  1,
+  35.696111,
+  51.423056,
+  25000,
+  true,
+  true,
+  "",
+  false
+);
+Place.PLACES[2] = new Place(
+  2,
+  0,
+  "کرج",
+  "karaj",
+  "place2",
+  2,
+  35.832677,
+  50.927498,
+  25000,
+  true,
+  true,
+  "",
+  false
+);
+Place.PLACES[3] = new Place(
+  3,
+  0,
+  "مشهد",
+  "mashhad",
+  "place2",
+  3,
+  36.301355,
+  59.604209,
+  20000,
+  true,
+  true,
+  "",
+  false
+);
+Place.PLACES[4] = new Place(
+  4,
+  0,
+  "اصفهان",
+  "isfahan",
+  "place2",
+  4,
+  32.633333,
+  51.65,
+  20000,
+  true,
+  true,
+  "",
+  false
+);
+Place.PLACES[5] = new Place(
+  5,
+  0,
+  "تبریز",
+  "tabriz",
+  "place2",
+  5,
+  38.066667,
+  46.3,
+  15000,
+  true,
+  true,
+  "",
+  false
+);
+Place.PLACES[6] = new Place(
+  6,
+  0,
+  "شیراز",
+  "shiraz",
+  "place2",
+  6,
+  29.616667,
+  52.533333,
+  15000,
+  true,
+  true,
+  "",
+  false
+);
+Place.PLACES[7] = new Place(
+  7,
+  0,
+  "اهواز",
+  "ahvaz",
+  "place2",
+  7,
+  31.328978,
+  48.685473,
+  15000,
+  true,
+  true,
+  "",
+  false
+);
+Place.PLACES[8] = new Place(
+  8,
+  0,
+  "قم",
+  "qom",
+  "place2",
+  8,
+  34.65,
+  50.88,
+  15000,
+  true,
+  true,
+  "",
+  false
+);
+Place.PLACES[9] = new Place(
+  9,
+  0,
+  "کرمانشاه",
+  "kermanshah",
+  "place2",
+  9,
+  34.334081,
+  47.076058,
+  15000,
+  true,
+  true,
+  "",
+  false
+);
+Place.PLACES[10] = new Place(
+  10,
+  0,
+  "ارومیه",
+  "urmia",
+  "place2",
+  10,
+  37.548312,
+  45.064736,
+  15000,
+  true,
+  true,
+  "",
+  false
+);
+Place.PLACES[11] = new Place(
+  11,
+  0,
+  "زاهدان",
+  "zahedan",
+  "place2",
+  11,
+  29.492057,
+  60.847335,
+  18000,
+  true,
+  true,
+  "",
+  false
+);
+Place.PLACES[12] = new Place(
+  12,
+  0,
+  "رشت",
+  "rasht",
+  "place2",
+  12,
+  37.280609,
+  49.590197,
+  20000,
+  true,
+  true,
+  "",
+  false
+);
+Place.PLACES[13] = new Place(
+  13,
+  0,
+  "کرمان",
+  "kerman",
+  "place2",
+  13,
+  30.281899,
+  57.067394,
+  15000,
+  true,
+  true,
+  "",
+  false
+);
+Place.PLACES[14] = new Place(
+  14,
+  0,
+  "همدان",
+  "hamedan",
+  "place2",
+  14,
+  34.800554,
+  48.516941,
+  15000,
+  true,
+  true,
+  "",
+  false
+);
+Place.PLACES[15] = new Place(
+  15,
+  0,
+  "اراک",
+  "arak",
+  "place2",
+  15,
+  34.092473,
+  49.696541,
+  15000,
+  true,
+  true,
+  "",
+  false
+);
+Place.PLACES[16] = new Place(
+  16,
+  0,
+  "یزد",
+  "yazd",
+  "place2",
+  16,
+  31.890968,
+  54.356117,
+  15000,
+  true,
+  true,
+  "",
+  false
+);
+Place.PLACES[17] = new Place(
+  17,
+  0,
+  "اردبیل",
+  "ardabil",
+  "place2",
+  17,
+  38.240877,
+  48.296728,
+  15000,
+  true,
+  true,
+  "",
+  false
+);
+Place.PLACES[18] = new Place(
+  18,
+  0,
+  "بندرعباس",
+  "bandar-abbas",
+  "place2",
+  18,
+  27.195098,
+  56.308336,
+  15000,
+  true,
+  true,
+  "",
+  false
+);
+Place.PLACES[19] = new Place(
+  19,
+  0,
+  "قزوین",
+  "qazvin",
+  "place2",
+  19,
+  36.267321,
+  50.003886,
+  10000,
+  true,
+  true,
+  "",
+  false
+);
+Place.PLACES[20] = new Place(
+  20,
+  0,
+  "زنجان",
+  "zanjan",
+  "place2",
+  20,
+  36.679433,
+  48.496056,
+  10000,
+  true,
+  true,
+  "",
+  false
+);
+Place.PLACES[21] = new Place(
+  21,
+  0,
+  "گرگان",
+  "gorgan",
+  "place2",
+  21,
+  36.835943,
+  54.441376,
+  8000,
+  true,
+  true,
+  "",
+  false
+);
+Place.PLACES[22] = new Place(
+  22,
+  0,
+  "ساری",
+  "sari",
+  "place2",
+  22,
+  36.562876,
+  53.060875,
+  5000,
+  true,
+  true,
+  "",
+  false
+);
+Place.PLACES[23] = new Place(
+  23,
+  0,
+  "دزفول",
+  "dezful",
+  "place2",
+  23,
+  32.38547,
+  48.400612,
+  8000,
+  true,
+  true,
+  "",
+  false
+);
+Place.PLACES[24] = new Place(
+  24,
+  0,
+  "آبادان",
+  "abadan",
+  "place2",
+  24,
+  30.347398,
+  48.297272,
+  6000,
+  true,
+  true,
+  "",
+  false
+);
+Place.PLACES[25] = new Place(
+  25,
+  0,
+  "بوشهر",
+  "bushehr",
+  "place2",
+  25,
+  28.922232,
+  50.833912,
+  10000,
+  true,
+  true,
+  "",
+  false
+);
+Place.PLACES[26] = new Place(
+  26,
+  0,
+  "بروجرد",
+  "borujerd",
+  "place2",
+  26,
+  33.893502,
+  48.760706,
+  10000,
+  true,
+  true,
+  "",
+  false
+);
+Place.PLACES[27] = new Place(
+  27,
+  0,
+  "خرم‌آباد",
+  "khorramabad",
+  "place2",
+  27,
+  33.473836,
+  48.345921,
+  10000,
+  true,
+  true,
+  "",
+  false
+);
+Place.PLACES[28] = new Place(
+  28,
+  0,
+  "سنندج",
+  "sanandaj",
+  "place2",
+  28,
+  35.298315,
+  47.006275,
+  10000,
+  true,
+  true,
+  "",
+  false
+);
+Place.PLACES[29] = new Place(
+  29,
+  0,
+  "اسلام‌شهر",
+  "eslamshahr",
+  "place2",
+  29,
+  35.541166,
+  51.236012,
+  5000,
+  true,
+  true,
+  "",
+  false
+);
+Place.PLACES[30] = new Place(
+  30,
+  0,
+  "کاشان",
+  "kashan",
+  "place2",
+  30,
+  33.982656,
+  51.424547,
+  5000,
+  true,
+  true,
+  "",
+  false
+);
+Place.PLACES[31] = new Place(
+  31,
+  0,
+  "نجف‌آباد",
+  "najafabad",
+  "place2",
+  31,
+  32.63128,
+  51.358921,
+  10000,
+  true,
+  true,
+  "",
+  false
+);
+Place.PLACES[32] = new Place(
+  32,
+  0,
+  "ایلام",
+  "ilam",
+  "place2",
+  32,
+  33.631058,
+  46.408971,
+  10000,
+  true,
+  true,
+  "",
+  false
+);
+Place.PLACES[33] = new Place(
+  33,
+  0,
+  "کیش",
+  "kish",
+  "place2",
+  33,
+  26.537859,
+  53.975804,
+  5000,
+  true,
+  true,
+  "",
+  false
+);
+Place.PLACES[34] = new Place(
+  34,
+  0,
+  "بیرجند",
+  "birjand",
+  "place2",
+  34,
+  32.882038,
+  59.21079,
+  10000,
+  true,
+  true,
+  "",
+  false
+);
+Place.PLACES[35] = new Place(
+  35,
+  0,
+  "سمنان",
+  "semnan",
+  "place2",
+  35,
+  35.574962,
+  53.395761,
+  5000,
+  true,
+  true,
+  "",
+  false
+);
+Place.PLACES[36] = new Place(
+  36,
+  0,
+  "شهرکرد",
+  "shahrekord",
+  "place2",
+  36,
+  32.328337,
+  50.863214,
+  7000,
+  true,
+  true,
+  "",
+  false
+);
+Place.PLACES[37] = new Place(
+  37,
+  0,
+  "بندر ماهشهر",
+  "mahshahr",
+  "place2",
+  37,
+  30.560192,
+  49.19761,
+  5000,
+  true,
+  true,
+  "",
+  false
+);
+Place.PLACES[38] = new Place(
+  38,
+  0,
+  "یاسوج",
+  "yasuj",
+  "place2",
+  38,
+  30.675715,
+  51.586201,
+  7000,
+  true,
+  true,
+  "",
+  false
+);
+Place.PLACES[39] = new Place(
+  39,
+  0,
+  "بجنورد",
+  "bojnurd",
+  "place2",
+  39,
+  37.4784,
+  57.322489,
+  6000,
+  true,
+  true,
+  "",
+  false
+);

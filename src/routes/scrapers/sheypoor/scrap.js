@@ -56,6 +56,7 @@ const scrape = (url: string, resolve: Function) => {
           .trim();
 
         json.push({
+          site: "Divar",
           title,
           image,
           location,
