@@ -1,15 +1,8 @@
 // @flow
 import request from "request";
 import cheerio from "cheerio";
+import type { SheypoorItemsType } from "../../../flowTypes";
 
-type SheypoorItemsType = {
-  site: string,
-  title: string,
-  price: string,
-  location: string,
-  image: string,
-  dataSaveItem: number
-};
 const scrape = (url: string, resolve: Function) => {
   request(url, (error, response, html) => {
     if (!error) {

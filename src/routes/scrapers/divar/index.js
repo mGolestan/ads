@@ -6,6 +6,7 @@ import { Place } from "../../../utils/places";
 import fetch from "node-fetch";
 import type { Response } from "node-fetch";
 import { InternalServerError } from "../../../utils/errors";
+import type { DivarAdType, DivarResponseType } from "../../../flowTypes";
 
 const route = router();
 
@@ -45,7 +46,7 @@ route.get(
         debug("Error encountered in Divar request", e);
         throw new InternalServerError("errorConnecting");
       })
-      .then(json => {
+      .then((json: DivarResponseType) => {
         if (json.error) {
           throw new InternalServerError("Divar responsed with an error");
         }
@@ -56,7 +57,7 @@ route.get(
         const tokenIndexName = "token";
         const timeStampIndexName = "lm";
 
-        let customizedJson = [];
+        let customizedJson: Array<DivarAdType> = [];
 
         json.result.post_list.map(post => {
           customizedJson.push({
