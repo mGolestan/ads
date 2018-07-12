@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GET /scrape/sheypoor returns a valid result on a valid request 1`] = `
+Object {
+  "results": Array [],
+  "version": 1,
+}
+`;

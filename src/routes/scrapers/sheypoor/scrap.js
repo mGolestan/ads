@@ -3,7 +3,8 @@ import request from "request";
 import cheerio from "cheerio";
 
 type SheypoorItemsType = {
-  item: string,
+  site: string,
+  title: string,
   price: string,
   location: string,
   image: string,
@@ -14,7 +15,7 @@ const scrape = (url: string, resolve: Function) => {
     if (!error) {
       var $ = cheerio.load(html);
 
-      var json = [];
+      var json: Array<SheypoorItemsType> = [];
 
       $(".serp-item").filter(function() {
         var data = $(this);
