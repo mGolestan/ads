@@ -10,7 +10,7 @@
     "start": "yarn build && node dist/index.js",
     "start:dev": "nodemon --exec babel-node -- src/index.js",
     "flow": "flow",
-    "test": "yarn jest src test --runInBand"
+    "test": "yarn run flow && yarn jest src test --runInBand"
   },
   "pre-commit": [
     "test"
@@ -19,6 +19,12 @@
     "plugins": [
       "flowtype"
     ]
+  },
+  "jest": {
+    "setupFiles": [
+      "./test/setupTests.js"
+    ],
+    "testEnvironment": "node"
   },
   "repository": {
     "type": "git",
@@ -49,6 +55,7 @@
     "winston": "^2.4.0"
   },
   "devDependencies": {
+    "flow-bin": "^0.72.0",
     "jest": "^23.3.0",
     "pre-commit": "^1.2.2",
     "supertest": "^3.1.0"

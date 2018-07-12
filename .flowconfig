@@ -5,7 +5,6 @@
 
 [include]
 <PROJECT_ROOT>/src/.*
-<PROJECT_ROOT>/server.js
 
 [libs]
 flow-typed
