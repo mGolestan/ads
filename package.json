@@ -5,11 +5,16 @@
   "main": "server.js",
   "author": "Mohsen",
   "scripts": {
-    "start": "yarn rimraf dist && babel ./src --out-dir ./dist && node dist/index.js",
+    "build": "yarn rimraf dist && yarn build:copy-sources && babel ./src --out-dir ./dist --ignore '**/*.spec.js'",
+    "build:copy-sources": "flow-copy-source -v -i '**/*.spec.js' src dist",
+    "start": "yarn build && node dist/index.js",
     "start:dev": "nodemon --exec babel-node -- src/index.js",
     "flow": "flow",
     "test": "yarn jest src test --runInBand"
   },
+  "pre-commit": [
+    "test"
+  ],
   "standard": {
     "plugins": [
       "flowtype"
@@ -35,6 +40,7 @@
     "cors": "^2.8.4",
     "dotenv": "^6.0.0",
     "express": "4.16.3",
+    "flow-copy-source": "1.2.1",
     "helmet": "^3.12.1",
     "node-fetch": "^2.1.2",
     "request": "2.87.0",
@@ -44,6 +50,7 @@
   },
   "devDependencies": {
     "jest": "^23.3.0",
+    "pre-commit": "^1.2.2",
     "supertest": "^3.1.0"
   }
 }
