@@ -3,26 +3,25 @@ import { Router as router } from "express";
 import { wrap } from "async-middleware";
 import urlencode from "urlencode";
 import scrape from "./scrap";
+import { Place } from "../../../utils/places";
 
 const route = router();
 
-// Let's scrape Sheypoor
 route.get(
   "/",
   wrap((req: express$Request, res: express$Response) => {
-    // search query
     const searchQuery = urlencode(req.query.q);
 
-    // serch location
-    let searchLocation;
-    req.query.location
-      ? (searchLocation = urlencode(req.query.location))
-      : (searchLocation = "search");
+    const SheypoorGlobalSearchKey = "search";
+    let searchCity;
+    req.query.city
+      ? (searchCity = urlencode(Place.findByCitySlug(req.query.city).name))
+      : (searchCity = SheypoorGlobalSearchKey);
 
-    const url = `https://www.sheypoor.com/${searchLocation}?q=${searchQuery}`;
+    const url = `https://www.sheypoor.com/${searchCity}?q=${searchQuery}`;
 
     scrape(url, results => {
-      res.send(results);
+      res.send({ version: 1, results });
     });
   })
 );

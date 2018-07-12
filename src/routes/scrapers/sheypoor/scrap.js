@@ -1,20 +1,14 @@
 // @flow
 import request from "request";
 import cheerio from "cheerio";
+import type { SheypoorItemsType } from "../../../flowTypes";
 
-type SheypoorItemsType = {
-  item: string,
-  price: string,
-  location: string,
-  image: string,
-  dataSaveItem: number
-};
 const scrape = (url: string, resolve: Function) => {
   request(url, (error, response, html) => {
     if (!error) {
       var $ = cheerio.load(html);
 
-      var json = [];
+      var json: Array<SheypoorItemsType> = [];
 
       $(".serp-item").filter(function() {
         var data = $(this);
@@ -56,6 +50,7 @@ const scrape = (url: string, resolve: Function) => {
           .trim();
 
         json.push({
+          site: "Sheypoor",
           title,
           image,
           location,
