@@ -2,9 +2,7 @@
 import { Router as router } from "express";
 import { wrap } from "async-middleware";
 import { BadRequest } from "../../utils/errors";
-import { Place } from "../../utils/city";
-
-import "../../utils/city/data";
+import { Place } from "../../utils/places";
 
 const route = router();
 

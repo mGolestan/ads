@@ -2,12 +2,10 @@
 import { Router as router } from "express";
 import { wrap } from "async-middleware";
 import { debug } from "winston";
-import { Place } from "../../../utils/city";
+import { Place } from "../../../utils/places";
 import fetch from "node-fetch";
 import type { Response } from "node-fetch";
 import { InternalServerError } from "../../../utils/errors";
-
-import "../../../utils/city/data";
 
 const route = router();
 
@@ -76,7 +74,7 @@ route.get(
             }/contact`
           });
         });
-        res.send(customizedJson);
+        res.send({ version: 1, results: customizedJson });
       });
   })
 );

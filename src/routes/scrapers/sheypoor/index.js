@@ -3,9 +3,7 @@ import { Router as router } from "express";
 import { wrap } from "async-middleware";
 import urlencode from "urlencode";
 import scrape from "./scrap";
-import { Place } from "../../../utils/city";
-
-import "../../../utils/city/data";
+import { Place } from "../../../utils/places";
 
 const route = router();
 
@@ -23,7 +21,7 @@ route.get(
     const url = `https://www.sheypoor.com/${searchCity}?q=${searchQuery}`;
 
     scrape(url, results => {
-      res.send(results);
+      res.send({ version: 1, results });
     });
   })
 );

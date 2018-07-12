@@ -587,3 +587,5 @@ Place.PLACES[39] = new Place(
   "",
   false
 );
+
+export default Place;
