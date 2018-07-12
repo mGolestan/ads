@@ -43,6 +43,10 @@ class Place {
     ).sort((p1, p2) => p1.ordering < p2.ordering);
   }
 
+  static getAll() {
+    return Place.PLACES.slice(1);
+  }
+
   static findById(place2, place4) {
     const places = [];
     if (place2 && place2 in Place.PLACES) {
