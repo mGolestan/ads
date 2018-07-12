@@ -11,13 +11,6 @@ route.get(
   wrap((req: express$Request, res: express$Response) => {
     const { city, q } = req.query;
 
-    if (!q) {
-      throw new BadRequest("q parameter is required");
-    }
-    if (!Place.findByCitySlug(city)) {
-      throw new BadRequest("entered city is not supported");
-    }
-
     // $flow-disable-line
     const urlQueries = `?city=${city}&q=${q}`;
 
