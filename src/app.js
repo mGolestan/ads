@@ -2,10 +2,9 @@
 import express from "express";
 import bodyParser from "body-parser";
 import compress from "compression";
-import routes from "./routes";
 import helmet from "helmet";
 import cors from "cors";
-import loadEnv from "./utils/loadEnv";
+import routes from "./routes";
 import { notFound, errResponse, logRequest } from "./middlewares";
 
 const app = express();

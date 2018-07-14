@@ -3,15 +3,15 @@ import request from "request";
 import cheerio from "cheerio";
 import type { SheypoorItemsType } from "../../../flowTypes";
 
-const scrape = (url: string, resolve: Function) => {
-  request(url, (error, response, html) => {
-    if (!error) {
-      var $ = cheerio.load(html);
+const scrape = (url: string, resolve: *) => {
+  const json: Array<SheypoorItemsType> = [];
 
-      var json: Array<SheypoorItemsType> = [];
+  request(url, (error: Error, response: Response, html: *) => {
+    if (!error) {
+      const $ = cheerio.load(html);
 
       $(".serp-item").filter(function() {
-        var data = $(this);
+        const data = $(this); // eslint-disable-line
 
         const image = data.find($(".item-image img")).attr("src");
         const title = data
