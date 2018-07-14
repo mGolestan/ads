@@ -1,7 +1,7 @@
 // @flow
 import { InternalServerError } from "../utils/errors";
 
-const errResponse = (req: express$Request, res: express$Response) => {
+const errResponse = () => {
   throw new InternalServerError("Internal Error");
 };
 

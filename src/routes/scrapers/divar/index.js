@@ -2,9 +2,9 @@
 import { Router as router } from "express";
 import { wrap } from "async-middleware";
 import { debug } from "winston";
-import { Place } from "../../../utils/places";
 import fetch from "node-fetch";
 import type { Response } from "node-fetch";
+import { Place } from "../../../utils/places";
 import { InternalServerError } from "../../../utils/errors";
 import type { DivarAdType, DivarResponseType } from "../../../flowTypes";
 
@@ -14,7 +14,6 @@ route.get(
   "/",
   wrap((req: express$Request, res: express$Response) => {
     const searchQuery = req.query.q;
-    const DivarDefaultSearchCity = "tehran";
 
     let cityDetails;
     if (req.query.city) {
@@ -24,7 +23,7 @@ route.get(
     }
 
     if (!cityDetails) {
-      return res.sendStatus(204);
+      return res.sendStatus(204); // eslint-disable-line
     }
 
     const body = {
@@ -41,7 +40,7 @@ route.get(
       body: JSON.stringify(body),
       headers: { "Content-Type": "application/json" }
     })
-      .then((res: Response) => res.json())
+      .then((response: Response) => response.json())
       .catch((e: Error) => {
         debug("Error encountered in Divar request", e);
         throw new InternalServerError("errorConnecting");
@@ -57,8 +56,9 @@ route.get(
         const tokenIndexName = "token";
         const timeStampIndexName = "lm";
 
-        let customizedJson: Array<DivarAdType> = [];
+        const customizedJson: Array<DivarAdType> = [];
 
+        // eslint-disable-next-line
         json.result.post_list.map(post => {
           customizedJson.push({
             site: "Divar",
@@ -77,6 +77,7 @@ route.get(
         });
         res.send({ version: 1, results: customizedJson });
       });
+    return 0;
   })
 );
 
