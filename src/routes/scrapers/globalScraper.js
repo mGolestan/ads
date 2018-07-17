@@ -13,8 +13,19 @@ route.get(
     const urlQueries = `?city=${city}&q=${q}`;
 
     const scrapersUrl = {
-      Divar: `http://${req.headers.host}/scrape/divar${urlQueries}`,
-      Sheypoor: `http://${req.headers.host}/scrape/sheypoor${urlQueries}`
+      currentPage: 1,
+      scrapers: [
+        {
+          name: "Divar",
+          url: `http://${req.headers.host}/scrape/divar${urlQueries}`,
+          method: "get"
+        },
+        {
+          name: "Sheypoor",
+          url: `http://${req.headers.host}/scrape/sheypoor${urlQueries}`,
+          method: "get"
+        }
+      ]
     };
 
     res.send(scrapersUrl);
