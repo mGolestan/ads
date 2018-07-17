@@ -1,6 +1,7 @@
 // @flow
 import { Router as router } from "express";
 import { wrap } from "async-middleware";
+import loadEnv from "../../utils/loadEnv";
 
 const route = router();
 
@@ -14,19 +15,24 @@ route.get(
 
     const scrapersUrl = {
       currentPage: 1,
-      scrapers: [
-        {
-          name: "Divar",
-          url: `http://${req.headers.host}/scrape/divar${urlQueries}`,
-          method: "get"
-        },
-        {
-          name: "Sheypoor",
-          url: `http://${req.headers.host}/scrape/sheypoor${urlQueries}`,
-          method: "get"
-        }
-      ]
+      scrapers: []
     };
+
+    if (loadEnv("DIVAR_SCRAPER_ENABLED") === "true") {
+      scrapersUrl.scrapers.push({
+        name: "Divar",
+        url: `http://${req.headers.host}/scrape/divar${urlQueries}`,
+        method: "get"
+      });
+    }
+
+    if (loadEnv("SHEYPOOR_SCRAPER_ENABLED") === "true") {
+      scrapersUrl.scrapers.push({
+        name: "Sheypoor",
+        url: `http://${req.headers.host}/scrape/sheypoor${urlQueries}`,
+        method: "get"
+      });
+    }
 
     res.send(scrapersUrl);
   })
