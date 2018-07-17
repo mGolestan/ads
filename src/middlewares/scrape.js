@@ -10,6 +10,9 @@ const scrape = (
   if (!req.query.q) {
     throw new BadRequest("q parameter is required");
   }
+  if (!req.query.city) {
+    throw new BadRequest("city parameter is required");
+  }
   if (!Place.findByCitySlug(req.query.city)) {
     throw new BadRequest("entered city is not supported");
   }
