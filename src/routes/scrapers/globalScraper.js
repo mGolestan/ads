@@ -21,7 +21,7 @@ route.get(
     if (loadEnv("DIVAR_SCRAPER_ENABLED") === "true") {
       scrapersUrl.scrapers.push({
         name: "Divar",
-        url: `http://${req.headers.host}/scrape/divar${urlQueries}`,
+        url: `https://${req.headers.host}/scrape/divar${urlQueries}`,
         method: "get"
       });
     }
@@ -29,7 +29,7 @@ route.get(
     if (loadEnv("SHEYPOOR_SCRAPER_ENABLED") === "true") {
       scrapersUrl.scrapers.push({
         name: "Sheypoor",
-        url: `http://${req.headers.host}/scrape/sheypoor${urlQueries}`,
+        url: `https://${req.headers.host}/scrape/sheypoor${urlQueries}`,
         method: "get"
       });
     }
