@@ -72,7 +72,8 @@ route.get(
             }/${post[tokenIndexName]}.jpg`,
             contact: `https://api.divar.ir/v1/posts/${
               post[tokenIndexName]
-            }/contact`
+            }/contact`,
+            url: `https://divar.ir/v/${post[tokenIndexName]}`
           });
         });
         res.send({ version: 1, results: customizedJson });

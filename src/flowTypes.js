@@ -10,7 +10,9 @@ export type SheypoorItemsType = {
   price: string,
   location: string,
   image: string,
-  dataSaveItem: number
+  token: number,
+  url: string,
+  contact: string
 };
 
 /************************

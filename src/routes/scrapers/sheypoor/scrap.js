@@ -22,7 +22,16 @@ const scrape = (url: string, resolve: *) => {
           .next()
           .text()
           .trim();
-        const dataSaveItem = data
+        const postUrl = data
+          .children()
+          .last()
+          .children()
+          .first()
+          .next()
+          .children()
+          .first()
+          .attr("href");
+        const token = data
           .children()
           .last()
           .children()
@@ -55,7 +64,9 @@ const scrape = (url: string, resolve: *) => {
           image,
           location,
           price,
-          dataSaveItem
+          token,
+          url: postUrl,
+          contact: `https://www.sheypoor.com/api/web/listings/${token}/number`
         });
       });
     }
