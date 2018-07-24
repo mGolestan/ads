@@ -22,7 +22,7 @@ route.get(
     const url = `https://www.sheypoor.com/${searchCity}?q=${searchQuery}`;
 
     scrape(url, (results: Array<SheypoorItemsType>) => {
-      res.send({ version: 1, results });
+      res.send({ version: 1.2, results });
     });
   })
 );

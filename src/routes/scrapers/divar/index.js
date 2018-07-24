@@ -76,7 +76,7 @@ route.get(
             url: `https://divar.ir/v/${post[tokenIndexName]}`
           });
         });
-        res.send({ version: 1, results: customizedJson });
+        res.send({ version: 1.1, results: customizedJson });
       });
     return 0;
   })
