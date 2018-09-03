@@ -7,13 +7,15 @@ const scrape = (
   res: express$Response,
   next: express$NextFunction
 ) => {
-  if (!req.query.q) {
+  if (!req.query.q && !req.body.q) {
     throw new BadRequest("q parameter is required");
   }
-  if (!req.query.city) {
+  if (!req.query.city && !req.body.city) {
     throw new BadRequest("city parameter is required");
   }
-  if (!Place.findByCitySlug(req.query.city)) {
+
+  const city = req.query.city ? req.query.city : req.body.city && req.body.city;
+  if (!Place.findByCitySlug(city)) {
     throw new BadRequest("entered city is not supported");
   }
 

@@ -23,15 +23,20 @@ route.get(
     }
 
     if (!cityDetails) {
-      return res.sendStatus(204); // eslint-disable-line
+      return res.sendStatus(204); // eslint-disable-line no-magic-numbers
     }
+
+    // below variable is using for divar pagination,
+    // it gets the last post date and put it in the request.
+    // if 0 is assigned it means that we are fetching the first page.
+    const lastPostDate = req.query.lastPostDate ? req.query.lastPostDate : 0;
 
     const body = {
       jsonrpc: "2.0",
       method: "getPostList",
       params: [
-        [[cityDetails.level, 0, [cityDetails.id]], ["query", 0, [searchQuery]]],
-        0
+        [[cityDetails.level, 0, [cityDetails.id]], ["query", 1, [searchQuery]]],
+        Number(lastPostDate)
       ]
     };
 
@@ -58,7 +63,7 @@ route.get(
 
         const customizedJson: Array<DivarAdType> = [];
 
-        // eslint-disable-next-line
+        // eslint-disable-next-line flowtype/require-parameter-type
         json.result.post_list.map(post => {
           customizedJson.push({
             site: "Divar",
@@ -76,7 +81,11 @@ route.get(
             url: `https://divar.ir/v/${post[tokenIndexName]}`
           });
         });
-        res.send({ version: 1.1, results: customizedJson });
+        res.send({
+          version: 1.1,
+          specifics: { divar: { lastPostDate: json.result.last_post_date } },
+          results: customizedJson
+        });
       });
     return 0;
   })

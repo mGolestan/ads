@@ -33,6 +33,7 @@ export type DivarAdType = {
 export type DivarResponseType = {
   error?: string,
   result: {
+    last_post_date: number,
     post_list: Array<{
       title: string,
       desc: string,
