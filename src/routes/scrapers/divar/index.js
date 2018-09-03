@@ -60,6 +60,7 @@ route.get(
         const descIndexName = "desc";
         const tokenIndexName = "token";
         const timeStampIndexName = "lm";
+        const eachCrawlItems = 23;
 
         const customizedJson: Array<DivarAdType> = [];
 
@@ -83,7 +84,13 @@ route.get(
         });
         res.send({
           version: 1.1,
-          specifics: { divar: { lastPostDate: json.result.last_post_date } },
+          specifics: {
+            divar: {
+              lastPostDate: json.result.last_post_date,
+              noMoreResults:
+                json.result.post_list.length < eachCrawlItems ? true : false
+            }
+          },
           results: customizedJson
         });
       });

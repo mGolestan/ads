@@ -31,8 +31,17 @@ route.get(
     // $flow-disable-line
     const url = `https://www.sheypoor.com/${searchCity}?q=${searchQuery}&p=${page}`;
 
+    const maxItemsPerPage = 24;
     scrape(url, (results: Array<SheypoorItemsType>) => {
-      res.send({ version: 1.2, results });
+      res.send({
+        version: 1.2,
+        specifics: {
+          sheypoor: {
+            noMoreResults: results.length < maxItemsPerPage ? true : false
+          }
+        },
+        results
+      });
     });
   })
 );
